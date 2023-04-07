@@ -1,7 +1,11 @@
 import { useState } from 'react'
 import { useTrail, animated } from 'react-spring'
 
-const Sidebar = () => {
+interface Props {
+  addNote: (e: string) => void
+}
+
+const Sidebar = ({ addNote = (e) => {} }: Props) => {
   const [colorValues, setColorValues] = useState([
     '#fdba74',
     '#ea580c',
@@ -27,7 +31,7 @@ const Sidebar = () => {
   
   return (
     <aside
-      className="flex flex-col items-center bg-white text-gray-700 shadow h-full px-4">
+      className="z-50 grow-0 fixed inset-y-0 left-0 flex flex-col items-center bg-white text-gray-700 shadow h-full px-4">
 
       <div className="h-16 flex items-center w-full justify-center font-semibold">
         Notes
@@ -49,13 +53,11 @@ const Sidebar = () => {
               <animated.button
                 style={{ backgroundColor: colorValues[index] }}
                 className="trails-text w-4 h-4 rounded-full"
+                onClick={() => addNote(colorValues[index])}
               />
             </animated.li>
           ))
         }
-        <li>
-
-        </li>
       </ul>
 
     </aside>

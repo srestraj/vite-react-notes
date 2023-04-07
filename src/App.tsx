@@ -1,12 +1,55 @@
+import { useState, useEffect, useMemo } from 'react'
 import Sidebar from './components/Sidebar'
 import Main from './components/Main'
 
-function App() {
+const App = () => {
+  const [notes, setNotes] = useState<any[]>([])
+  const [searchQuery, setSearchQuery] = useState('')
+
+  const addNote = (color: string) => {
+    setNotes([...notes, { title: '', bgColor: color }])
+  }
+
+  const searchNotes = (title: string) => {
+    setSearchQuery(title)
+  }
+
+  const filteredNotes = useMemo(() => {
+    return searchQuery.length <= 0  ? notes : notes.filter((note) => note.title.toLowerCase().includes(searchQuery.toLowerCase()))
+  }, [searchQuery, searchNotes])
+
+  const updateNote = (e:any, index: number) => {
+    setNotes(
+      notes.map((note) => {
+        if (notes.indexOf(note) === index) {
+          note.title = e.target.value
+        }
+        return note
+      })
+    )
+    localStorage.setItem('notes', JSON.stringify(notes))
+  }
+
+  const deleteNote = (index: number) => {
+    const updatedNotes = notes.filter((note) => {
+      return notes.indexOf(note) !== index
+    })
+    setNotes([...updatedNotes])
+    localStorage.setItem('notes', JSON.stringify(updatedNotes))
+  }
+
+  useEffect(() => {
+    const prevNotes = localStorage.getItem('notes') as string
+    if (prevNotes || prevNotes.length) {
+      const previousNotes = JSON.parse(prevNotes)
+      return setNotes([...previousNotes])
+    }
+  }, [])
 
   return (
     <div className="App h-screen w-screen flex">
-      <Sidebar />
-      <Main />
+      <Sidebar addNote={addNote} />
+      <Main notes={filteredNotes} updateNote={updateNote} deleteNote={deleteNote} searchNotes={searchNotes} />
     </div>
   )
 }
