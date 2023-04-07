@@ -7,7 +7,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const addNote = (color: string) => {
-    setNotes([...notes, { title: '', bgColor: color }])
+    setNotes([...notes, { title: '', bgColor: color, date: new Date() }])
   }
 
   const searchNotes = (title: string) => {

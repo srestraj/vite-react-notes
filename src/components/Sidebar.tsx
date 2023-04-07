@@ -8,7 +8,7 @@ interface Props {
 const Sidebar = ({ addNote = (e) => {} }: Props) => {
   const [colorValues, setColorValues] = useState([
     '#fdba74',
-    '#ea580c',
+    '#fca5a5',
     '#a78bfa',
     '#67e8f9',
     '#bbf7d0'
@@ -39,8 +39,24 @@ const Sidebar = ({ addNote = (e) => {} }: Props) => {
 
       <ul className="flex flex-col items-center gap-y-2">
         <li>
-          <button onClick={toggleColors} className="transition-all bg-neutral-950 w-8 h-8 rounded-full text-white text-xl inline-flex items-center justify-center mb-4">
-            {!isOpen ? '+' : '-'}
+          <button
+            onClick={toggleColors}
+            className={`
+              transition-all
+              bg-neutral-950
+              w-8
+              h-8
+              rounded-full
+              text-white
+              text-xl
+              inline-flex
+              items-center
+              justify-center
+              mb-4
+              ${isOpen ? 'rotate-180' : ''}
+            `}
+          >
+            +
           </button>
         </li>
         {
@@ -48,11 +64,10 @@ const Sidebar = ({ addNote = (e) => {} }: Props) => {
             <animated.li
               key={colorValues[index]}
               style={{ ...rest }}
-              className="trails-text"
             >
               <animated.button
                 style={{ backgroundColor: colorValues[index] }}
-                className="trails-text w-4 h-4 rounded-full"
+                className="w-5 h-5 rounded-full"
                 onClick={() => addNote(colorValues[index])}
               />
             </animated.li>
