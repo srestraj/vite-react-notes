@@ -40,7 +40,7 @@ const App = () => {
 
   useEffect(() => {
     const prevNotes = localStorage.getItem('notes') as string
-    if (prevNotes || prevNotes.length) {
+    if (prevNotes) {
       const previousNotes = JSON.parse(prevNotes)
       return setNotes([...previousNotes])
     }
