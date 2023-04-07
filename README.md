@@ -1,1 +1,1 @@
-## React notes
+## React notes app
