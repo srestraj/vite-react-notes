@@ -33,7 +33,7 @@ const Sidebar = ({ addNote = (e) => {} }: Props) => {
     <aside
       className="z-50 grow-0 fixed inset-y-0 left-0 flex flex-col items-center bg-white text-gray-700 shadow h-full px-4">
 
-      <div className="h-16 flex items-center w-full justify-center font-semibold text-neutral-950">
+      <div className="h-16 flex items-center w-full justify-center font-normal text-neutral-950">
         Notes
       </div>
 
