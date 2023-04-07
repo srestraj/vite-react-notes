@@ -9,24 +9,34 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
   return (
     <div className="w-full absolute top-0 right-0 grow pl-20">
       <div className="md:py-5 md:px-12 py-5 w-full px-8">
-      <input
-        className="
-          py-3
-          focus:outline-none
-          w-full
-          border-0
-          text-xl
-          bg-transparent
-          text-neutral-950
-          placeholder:text-neutral-700
-        "
-        type="text"
-        placeholder="Search notes..."
-        onChange={(e: any) => searchNotes(e.target.value)}
-      />
+        <input
+          className="
+            py-3
+            focus:outline-none
+            w-full
+            border-0
+            text-xl
+            bg-transparent
+            text-neutral-950
+            placeholder:text-neutral-700
+          "
+          type="text"
+          placeholder="Search notes..."
+          onChange={(e: any) => searchNotes(e.target.value)}
+        />
+        <h1 className="md:text-4xl text-2xl font-normal my-8">
+          Your Notes
+        </h1>
       </div>
+      {
+        
+      }
       <div className="lg:gap-4 gap-3 columns-1 md:columns-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 mx-auto px-5">
         {
+          !notes.length ?
+            <div className="relative px-5 text-lg font-light">
+              <h3>No notes found 🙁</h3>
+            </div> :
           notes.map((note: any, index: number) =>
             <div className="relative rounded-xl px-5 py-10" key={index} style={{ backgroundColor: note.bgColor }}>
               <button
