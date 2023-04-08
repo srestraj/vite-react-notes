@@ -47,13 +47,13 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
               <h3>No notes found 🙁</h3>
             </div> :
           notes.map((note: any, index: number) =>
-            <div className="relative rounded-2xl px-5" key={index} style={{ backgroundColor: note.bgColor }}>
+            <div className="relative rounded-3xl px-5" key={index} style={{ backgroundColor: note.bgColor }}>
               <button
                 onClick={() => deleteNote(index)}
                 className="
                   absolute
-                  top-2
-                  right-2
+                  top-4
+                  right-4
                   w-6
                   h-6
                   rounded-full
@@ -89,7 +89,7 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
                 onChange={(e: any) => updateNote(e, index)}
                 value={note.title}
                 placeholder="Add note"
-                autoFocus={!note.title.length}
+                autoFocus={notes.length == 1 && !note.title.length}
               />
               {
                 note.date &&
