@@ -10,22 +10,27 @@ interface Props {
 const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}, searchNotes = (title) => {} }:Props) => {
   return (
     <div className="w-full absolute top-0 right-0 grow pl-20">
-      <div className="md:py-5 md:px-12 py-5 w-full px-8">
-        <input
-          className="
-            py-3
-            focus:outline-none
-            w-full
-            border-0
-            text-xl
-            bg-transparent
-            text-neutral-950
-            placeholder:text-neutral-700
-          "
-          type="text"
-          placeholder="Search notes"
-          onChange={(e: any) => searchNotes(e.target.value)}
-        />
+      <div className="md:px-12 md:py-3 py-2 w-full px-8">
+        <div className="inline-flex items-center gap-x-3">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4 fill-neutral-700">
+          <path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/>
+        </svg>
+          <input
+            className="
+              py-3
+              focus:outline-none
+              w-full
+              border-0
+              text-base
+              bg-transparent
+              text-neutral-950
+              placeholder:text-neutral-700
+            "
+            type="text"
+            placeholder="Search notes"
+            onChange={(e: any) => searchNotes(e.target.value)}
+          />
+        </div>
         <h1 className="md:text-4xl text-2xl font-normal my-8">
           Your Notes
         </h1>
@@ -36,7 +41,7 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
       <div className="lg:gap-4 gap-3 columns-1 md:columns-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 md:px-8 px-5">
         {
           !notes.length ?
-            <div className="relative px-5 text-lg font-light">
+            <div className="relative md:px-5 px-4 text-lg font-light">
               <h3>No notes found 🙁</h3>
             </div> :
           notes.map((note: any, index: number) =>
