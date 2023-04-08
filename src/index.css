@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply overflow-x-hidden;
+    @apply overflow-x-hidden bg-white dark:bg-neutral-800;
   }
 }
 
