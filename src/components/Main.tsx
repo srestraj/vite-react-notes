@@ -81,7 +81,6 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
                   prose-p:text-base
                   prose-p:leading-7
                   prose-p:font-normal
-                  dark:prose-invert
                   text-neutral-800
                   bg-transparent
                 "
