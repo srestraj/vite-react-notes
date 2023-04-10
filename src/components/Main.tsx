@@ -1,4 +1,5 @@
 import moment from 'moment'
+import Tiptap from './TipTap'
 
 interface Props {
   notes: any,
@@ -70,27 +71,23 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
                 />
               </svg>
               </button>
-              <textarea
+              <div
                 className="
-                  scrollbar-hide
-                  max-w-full
-                  resize
-                  mt-10
-                  pb-3
-                  focus:outline-none
-                  w-full
-                  border-0
-                  text-xl
+                  prose
+                  max-w-none 
+                  prose-li:text-base
+                  prose-li:leading-7
+                  prose-li:md:leading-9
+                  prose-p:text-base
+                  prose-p:leading-7
+                  prose-p:font-normal
+                  dark:prose-invert
+                  text-neutral-800
                   bg-transparent
-                  text-neutral-950
-                  placeholder:text-neutral-700
                 "
-                rows={8}
-                onChange={(e: any) => updateNote(e, index)}
-                value={note.title}
-                placeholder="Add note"
-                autoFocus={notes.length == 1 && !note.title.length}
-              />
+              >
+                <Tiptap content={note.title} updateContent={(e) => updateNote(e, index)} />
+              </div>
               {
                 note.date &&
                 <p className="py-5">

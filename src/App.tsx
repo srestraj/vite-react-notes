@@ -9,7 +9,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const addNote = (color: string) => {
-    setNotes([{ title: '', bgColor: color, date: new Date() }, ...notes])
+    setNotes([{ title: 'Add a note', bgColor: color, date: new Date() }, ...notes])
     if (textAreas.length) {
       textAreas[0].focus()
     }
@@ -27,7 +27,7 @@ const App = () => {
     setNotes(
       notes.map((note) => {
         if (notes.indexOf(note) === index) {
-          note.title = e.target.value
+          note.title = e
         }
         return note
       })
