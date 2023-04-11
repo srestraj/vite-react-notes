@@ -85,7 +85,11 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
                   bg-transparent
                 "
               >
-                <Tiptap content={note.title} updateContent={(e) => updateNote(e, index)} />
+                <Tiptap
+                  content={note.title}
+                  updateContent={(e) => updateNote(e, index)}
+                  isFocused={index == 0 && !note.title.length}
+                />
               </div>
               {
                 note.date &&

@@ -9,10 +9,11 @@ import Sort from './icons/Sort'
 
 interface Props {
   content: string,
-  updateContent: (content: any) => void
+  updateContent: (content: any) => void,
+  isFocused: boolean
 }
 
-const Tiptap = ({ content, updateContent = (content) => {} }: Props) => {
+const Tiptap = ({ content, updateContent = (content) => {}, isFocused }: Props) => {
 
   const [isDropdownOpen, setDropdownOpen] = useState(false)
 
@@ -32,6 +33,10 @@ const Tiptap = ({ content, updateContent = (content) => {} }: Props) => {
       updateContent(editor?.getHTML())
     }
   })
+
+  if (isFocused) {
+    editor?.commands.focus('end')
+  }
 
   return (
     <div>

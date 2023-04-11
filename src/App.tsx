@@ -9,7 +9,7 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   const addNote = (color: string) => {
-    setNotes([{ title: 'Add a note', bgColor: color, date: new Date() }, ...notes])
+    setNotes([{ title: '', bgColor: color, date: new Date() }, ...notes])
     if (textAreas.length) {
       textAreas[0].focus()
     }
