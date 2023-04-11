@@ -40,7 +40,7 @@ const Tiptap = ({ content, updateContent = (content) => {}, isFocused }: Props) 
 
   return (
     <div>
-       <div className="flex flex-wrap gap-2 p-2 w-full mt-1">
+       <div className="flex flex-wrap gap-2 p-2 lg:w-full w-10/12 mt-1">
         <div className="relative">
           <button className="inline-flex items-center gap-2" onClick={() => setDropdownOpen((value) => value = !value)}>
             Normal <Sort />

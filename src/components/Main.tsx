@@ -41,7 +41,7 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
       {
         
       }
-      <div className="lg:gap-4 gap-3 columns-1 md:columns-2 grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5 md:px-8 px-5">
+      <div className="lg:gap-4 gap-3 xl:grid-cols-4 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 md:px-8 px-5">
         {
           !notes.length ?
             <div className="relative md:px-5 px-4 text-lg font-light text-neutral-800 dark:text-neutral-100">
@@ -66,10 +66,10 @@ const Main = ({ notes, updateNote = (e, index) => {}, deleteNote = (index) => {}
                   justify-center
                 "
               >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="group-hover:fill-white transition-all w-5 h-5">
-                <path d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"
-                />
-              </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="group-hover:fill-white transition-all w-5 h-5">
+                  <path d="M18,6h0a1,1,0,0,0-1.414,0L12,10.586,7.414,6A1,1,0,0,0,6,6H6A1,1,0,0,0,6,7.414L10.586,12,6,16.586A1,1,0,0,0,6,18H6a1,1,0,0,0,1.414,0L12,13.414,16.586,18A1,1,0,0,0,18,18h0a1,1,0,0,0,0-1.414L13.414,12,18,7.414A1,1,0,0,0,18,6Z"
+                  />
+                </svg>
               </button>
               <div
                 className="
